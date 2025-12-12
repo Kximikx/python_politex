@@ -45,27 +45,27 @@ def compute_F(fi_values):
         result *= value
     return result
 
+if __name__ == "__main__":
+    A = [
+        [33, -5, -9, -20, -11],
+        [0, -42, 86, 83, 71],
+        [-6, -9, 33, 13, 22],
+        [52, -5, -7, 53, 19],
+        [-3, 98, 72, 68, 0],
+    ]
 
-A = [
-    [33, -5, -9, -20, -11],
-    [0, -42, 86, 83, 71],
-    [-6, -9, 33, 13, 22],
-    [52, -5, -7, 53, 19],
-    [-3, 98, 72, 68, 0]
-]
+    sorted_A = sort_matrix_rows(A) #иклик функції sort_matrix_rows
 
-sorted_A = sort_matrix_rows(A) #иклик функції sort_matrix_rows
+    fi_values = compute_fi(sorted_A) # у функцію compute_fi передається відсортована матриця
 
-fi_values = compute_fi(sorted_A) # у функцію compute_fi передається відсортована матриця
+    F_value = compute_F(fi_values) # підсумкове значення функції F яке дорівнює добутку всіх fi
 
-F_value = compute_F(fi_values) # підсумкове значення функції F яке дорівнює добутку всіх fi
+    print("Відсортована матриця:")
+    for row in sorted_A:
+        print(row)
 
-print("Відсортована матриця:")
-for row in sorted_A:
-    print(row)
+    print("\nЗначення fi(aij):")
+    for i, val in enumerate(fi_values):
+        print("fi стовпця", i, "=", val)
 
-print("\nЗначення fi(aij):")
-for i, val in enumerate(fi_values):
-    print("fi стовпця", i, "=", val)
-
-print("\nЗначення F(fi(aij)) =", F_value)
+    print("\nЗначення F(fi(aij)) =", F_value)
