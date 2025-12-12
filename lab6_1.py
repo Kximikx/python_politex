@@ -68,7 +68,7 @@ class FileWorker:
             raise FileCorrupted("Помилка дозапису у JSON-файл!")
         
 if __name__ == "__main__":
-    worker = FileWorker("daata.json")
+    worker = FileWorker("data.json")
 
     print("Поточний JSON:")
     print(worker.read())

@@ -1,3 +1,4 @@
 2025-11-27 15:21:37,361 | ERROR | FileCorrupted: Помилка читання JSON-файлу!
 2025-11-28 13:18:27,064 | ERROR | FileCorrupted: Помилка читання JSON-файлу!
 2025-11-28 13:22:32,259 | ERROR | FileNotFound: Файл не існує!
+2025-12-12 15:58:39,170 | ERROR | FileNotFound: Файл не існує!
