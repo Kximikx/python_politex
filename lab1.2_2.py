@@ -76,4 +76,9 @@ class TestKthLargest(unittest.TestCase):
 
 
 if __name__ == "__main__":
+    nums = [15, 7, 22, 9, 36, 2, 42, 18]
+    k = 3
+    value, index = kth_largest(nums, k)
+    print(f"Вхідний масив: {nums} Задане k: {k} Знайдений {k}-й найбільший елемент: {value} "
+          f"Позиція {k}-го найбільшого елемента в масиві: {index}")
     unittest.main()
