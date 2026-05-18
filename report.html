@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Квітка — Максимальний потік</title>
+<style>
+  :root {
+    --bg1:#0b1020; --bg2:#0f1b3a;
+    --card:#111a33cc; --stroke:#26325d;
+    --text:#e9eefc; --muted:#aab5de;
+    --accent:#7c5cff; --accent2:#00d4ff; --good:#38d996;
+  }
+  body {
+    margin:0; font-family: Arial, sans-serif; color:var(--text);
+    background: radial-gradient(1200px 600px at 20% 10%, #1a2a6c55, transparent 60%),
+                radial-gradient(900px 500px at 90% 30%, #00d4ff33, transparent 55%),
+                linear-gradient(180deg, var(--bg1), var(--bg2));
+  }
+  .wrap { max-width: 980px; margin: 32px auto; padding: 0 16px; }
+  .hero { display:flex; gap:16px; flex-wrap:wrap; align-items:stretch; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--stroke);
+    border-radius: 16px;
+    box-shadow: 0 12px 30px #00000055;
+    padding: 18px;
+  }
+  .big {
+    flex: 1 1 320px;
+    position: relative;
+    overflow: hidden;
+  }
+  .big:before {
+    content:"";
+    position:absolute; inset:-40px;
+    background: conic-gradient(from 180deg, var(--accent), var(--accent2), var(--accent));
+    filter: blur(40px);
+    opacity:.25;
+  }
+  .big > * { position: relative; }
+  h1 { margin: 0 0 6px 0; font-size: 26px; }
+  .sub { color: var(--muted); margin: 0 0 14px 0; }
+  .kpi {
+    display:flex; align-items:baseline; gap:10px;
+    background:#0b122acc; border:1px solid #1f2a52;
+    padding:14px 16px; border-radius:14px;
+  }
+  .kpi .num { font-size: 44px; font-weight: 800; letter-spacing: .5px; }
+  .kpi .lbl { color: var(--muted); }
+  .badge {
+    display:inline-block; font-size:12px; padding:6px 10px;
+    border-radius:999px; border:1px solid #2b3a73;
+    background:#0b122a99; color: var(--muted);
+  }
+  .grid { display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-top:16px; }
+  @media (max-width: 760px) { .grid { grid-template-columns: 1fr; } }
+  .title { font-weight: 700; margin:0 0 10px 0; }
+  .pill {
+    display:inline-block; padding:7px 10px; margin:6px 6px 0 0;
+    border-radius: 999px; border:1px solid #2c3b76;
+    background:#0b122acc;
+  }
+  .pill2 { border-color:#1f6070; }
+  table {
+    width:100%; border-collapse: collapse; overflow:hidden;
+    border-radius: 14px; border:1px solid #25315b;
+    background:#0b122acc;
+  }
+  th, td { padding:10px 10px; border-bottom:1px solid #202a50; text-align:left; }
+  th { color: var(--muted); font-weight:600; background:#0b122a; }
+  tr:last-child td { border-bottom:none; }
+  .arrow { width:34px; text-align:center; color: var(--muted); }
+  .cap { font-weight:700; color: var(--good); }
+  .muted { color: var(--muted); }
+  .foot { margin-top: 18px; color: var(--muted); font-size: 13px; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="hero">
+      <div class="card big">
+        <span class="badge">Алгоритм: Максимальний потік</span>
+        <h1>Компанія «Квітка» — доставка квітів</h1>
+        <p class="sub">Максимальна кількість машин за день з ферм до магазинів з урахуванням пропускних здатностей доріг.</p>
+        <div class="kpi">
+          <div class="num">12</div>
+          <div class="lbl">машин / день</div>
+        </div>
+        <div class="foot">
+        </div>
+      </div>
+
+      <div class="card" style="flex:1 1 240px">
+        <p class="title">Ферми</p>
+        <div><span class='pill'>F1</span><span class='pill'>F2</span><span class='pill'>F3</span></div>
+        <p class="title" style="margin-top:16px">Магазини</p>
+        <div><span class='pill pill2'>S1</span><span class='pill pill2'>S2</span><span class='pill pill2'>S3</span></div>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <p class="title">Дороги (u → v) і місткість</p>
+        <table>
+          <thead>
+            <tr><th>Звідки</th><th></th><th>Куди</th><th>Місткість</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>F1</td><td class='arrow'>→</td><td>X1</td><td class='cap'>5</td></tr>
+<tr><td>X1</td><td class='arrow'>→</td><td>S1</td><td class='cap'>3</td></tr>
+<tr><td>X1</td><td class='arrow'>→</td><td>S2</td><td class='cap'>10</td></tr>
+<tr><td>F2</td><td class='arrow'>→</td><td>S3</td><td class='cap'>7</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <p class="title">Пояснення</p>
+        <p class="muted">
+          Кожна дорога має місткість — максимум машин за день. Максимальний потік знаходить найбільший можливий обсяг доставки,
+          який не перевищує жодної місткості.
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
